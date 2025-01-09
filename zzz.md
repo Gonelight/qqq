@@ -6,10 +6,10 @@
 | ----------- | ----------- |
 | <img src="https://i.ibb.co/Cv2fCwF/screenshot-2024-05-07-06-24-46-0000.jpg"> | <img src="https://i.ibb.co/HhGqVWK/screenshot-2024-05-07-06-25-52-0000.jpg"> |
 
-# 2
+# 3
 <img src="https://i.ibb.co/gJGM4Rc/Screenshot-2023-11-17-at-13-43-55.png">
 
-# 3
+# 4
 <code>
 {"message":"Got request","meta":{"params":{},"body":{"clientId":39933242,"message":"Не могу зарегистрироваться!","clientDeviceInfo":"Версия ОС: ios \nУстройство: iPhone XR \nВерсия приложения: 42.12.2","categoryId":"570","subcategoryId":"573","topic":"регистрация и разблокировка","action":"support","attachmentLinks":["https://s3.st.delitime.kz/support-dev/2023/07/07/79162317679/7040FF37-04BF-4761-9B01-B62B25470F78_1.jpg","https://s3.st.delitime.kz/support-dev/2023/07/07/79162317679/56B4B2E7-32EF-4300-9D5B-D3F6A5840287_2.jpg"],"isB2b":false,"rentId":90078729,"rentStage":"reserve"},"path":"/tickets","query":{}},"severity":"INFO","timestamp":1688726492740,"session-fingerprint":"20b2f1a5-bb06-4f7a-bc74-e879e893bedc","transaction":"no transaction","service":"eddy","process-fingerprint":"9b5aaecc-2655-4e45-af13-80c8f5bb345d"}
 {"message":"Check for existing ticket categoryId - 570 subCategoryId - 573 for client 39933242 before create new","severity":"INFO","timestamp":1688726492741,"session-fingerprint":"20b2f1a5-bb06-4f7a-bc74-e879e893bedc","transaction":"no transaction","service":"eddy","process-fingerprint":"9b5aaecc-2655-4e45-af13-80c8f5bb345d"}
@@ -23,7 +23,7 @@
 {"message":"Sending back success response","meta":{"code":500,"payload":{"message":"Request failed with status code 403"}},"severity":"INFO","timestamp":1688726493285,"session-fingerprint":"20b2f1a5-bb06-4f7a-bc74-e879e893bedc","transaction":"no transaction","service":"eddy","process-fingerprint":"9b5aaecc-2655-4e45-af13-80c8f5bb345d"}
 </code>
 
-# 4
+# 5
 
 ```sql
 CREATE TABLE public.cars (
@@ -46,29 +46,6 @@ CREATE TABLE public.car_commands_log (
 );
 
 ```
-	
-# 5
-	
-```sql
-CREATE TABLE public.metrics (
-	id serial,
-	user_id int4,
-	status varchar(16),
-	payment_density float8,
-	penalty_density float8,
-	ride_minutes float8,
-	rents_count int4,	
-	mileage jsonb NULL
-	CONSTRAINT metrics_pkey PRIMARY KEY (id)
-);
-```
-| Показатель    | Описание        | Ограничения |
-| :------------ |:---------------:| -----:|
-| status        | Статус пользователя | строка - active или blocked |
-| payment_density      | Плотность оплаты счетов        | 0 - 1 |
-| penalty_density | Плотность оплаты штрафов        |   0 - 1 |
-| rents_count | Количество аренд        |  |
-| ride_minutes | Количество минут в аренде        | |
 
 # 6
 	
