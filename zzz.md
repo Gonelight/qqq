@@ -1,11 +1,10 @@
-# 1 web
-
-|  |  |
-| ----------- | ----------- |
-| <img src="https://i.postimg.cc/3wNdDLSs/2025-01-09-17-03-13.jpg"> | <img src="https://i.ibb.co/HhGqVWK/screenshot-2024-05-07-06-25-52-0000.jpg"> |
+# 1
+<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/3wNdDLSs/2025-01-09-17-03-13.jpg' border='0' alt='2025-01-09-17-03-13'/></a>
 
 # 2 mobile
-
+|  |  |
+| ----------- | ----------- |
+| <img src="https://i.ibb.co/Cv2fCwF/screenshot-2024-05-07-06-24-46-0000.jpg"> | <img src="https://i.ibb.co/HhGqVWK/screenshot-2024-05-07-06-25-52-0000.jpg"> |
 
 # 2
 <img src="https://i.ibb.co/gJGM4Rc/Screenshot-2023-11-17-at-13-43-55.png">
