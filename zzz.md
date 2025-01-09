@@ -2,7 +2,7 @@
 
 |  |  |
 | ----------- | ----------- |
-| <img src="https://i.postimg.cc/3wNdDLSs/2025-01-09-17-03-13.jpg"> | <img src="https://i.ibb.co/HhGqVWK/screenshot-2024-05-07-06-25-52-0000.jpg"> |
+| <img src="[https://i.postimg.cc/3wNdDLSs/2025-01-09-17-03-13.jpg](https://i.postimg.cc/3wNdDLSs/2025-01-09-17-03-13.jpg)"> | <img src="https://i.ibb.co/HhGqVWK/screenshot-2024-05-07-06-25-52-0000.jpg"> |
 
 # 2 mobile
 
