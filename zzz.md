@@ -41,3 +41,118 @@ CREATE TABLE public.car_commands_log (
 );
 
 ```
+
+# 5
+
+```js
+const router = require('express').Router();
+const Sequelize = require('sequelize')
+const models = require('../models');
+const notAllowed = {
+  status: 'error',
+  message: 'Method Not Allowed',
+};
+
+router.get('/users/validate/:login', async (req, res, next) => {
+  if (req.access_role !== 'guido') {
+    res.status(405).json(notAllowed);
+    return true;
+  }
+  try {
+    const { login } = req.params;
+    const clients = models.clients;
+    let result = {};
+
+    if ( login.toString().length === 11 ) {
+      let client = await clients.findOne({
+        where: {
+          login
+        }
+      });
+      if (client && client.status === 2) {
+        result = {status: 'success', message: 'Client is active and valid', client}
+      } else {
+        result = {status: 'error', message: 'Client is not valid', client}
+      }
+    } else {
+      result = {status: 'error', message: 'Wrong client login'}
+    }
+
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+});
+
+module.exports = router;
+```
+
+# 6
+
+```
+FROM git.delimobil.ru:5005/deploy/ci/node:11
+
+RUN apt-get update && \
+    apt-get install -y curl git
+WORKDIR /usr/src/api/
+COPY . /usr/src/api/
+ENV TZ=Europe/Moscow
+RUN npm i --unsafe-perm --verbose
+CMD ["node", "app.js"]
+
+```
+
+# 7
+```yaml
+version: '3.7'
+
+services:
+
+  cars-service:
+    container_name: cars.service
+    build:
+      context: .
+      dockerfile: local.Dockerfile
+    command: --spring.profiles.active=common,dev
+    env_file:
+      - ./.env
+    environment:
+      - VIRTUAL_HOST=cars.delitime.docker
+      - VIRTUAL_PORT=8080
+    volumes:
+      - ./:/var/www
+    networks:
+      - default
+
+  cars-scheduler:
+    container_name: cars.scheduler
+    build:
+      context: .
+      dockerfile: local.Dockerfile
+    command: --spring.profiles.active=common,dev,scheduler
+    env_file:
+      - ./.env
+    volumes:
+      - ./:/var/www
+    networks:
+      - default
+  
+  postgres:
+    container_name: postgres
+    image: "postgis/postgis:15-3.3"
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: dev-env
+```
